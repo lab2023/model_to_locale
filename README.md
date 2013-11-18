@@ -1,6 +1,6 @@
 # ModelToLocale
 
-TODO: Write a gem description
+This gem creates locale file from model attributes.
 
 ## Installation
 
