@@ -8,8 +8,10 @@ class ToLocale
     data["#{locale}"]['activerecord']['attributes'] = Hash.new
 
     models.each do |model|
-      data["#{locale}"]['activerecord']['models']["#{model.downcase}"] = model.capitalize
-      data = add_attributes(data, model, locale)
+      unless model == "SchemaMigration" || model == "ArInternalMetadatum"
+        data["#{locale}"]['activerecord']['models']["#{model.downcase}"] = model.capitalize
+        data = add_attributes(data, model, locale)
+      end
     end
 
     write_to_file(data, locale)
